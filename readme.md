@@ -7,4 +7,4 @@
 then,
 3. terraform apply
 
-## Provider is Aws Ec2 and github
+#### Provider is Aws Ec2 and github

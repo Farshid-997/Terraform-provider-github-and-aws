@@ -16,10 +16,18 @@ provider "aws" {
 resource "aws_instance" "example" {
   # Resource arguents
 
-  ami="ami-053b0d53c279acc90" #ubuntu
-  instance_type="t2.micro"
+  ami=variable.aws_access_key #ubuntu
+  instance_type=var.size
 
   tags ={
-    Name="example-server"
+    Name=var.name
   }
+}
+
+resource "aws_iam_user" "user" {
+  name="${var.username}-user " 
+}
+
+output "instance_ip_addr" {
+  value = aws_instance.example.public_ip
 }
